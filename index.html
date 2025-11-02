@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Learning Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Word Learning Game</h1>
+            <div class="progress-info">
+                <span id="current-level">Level: A1</span>
+                <span id="progress-stats">0/0 words</span>
+            </div>
+        </header>
+
+        <!-- Mode Selection Screen -->
+        <div id="mode-selection" class="screen active">
+            <h2>Choose Your Mode</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="startLearnMode()">
+                    <span class="icon">🎓</span>
+                    <h3>Learn Mode</h3>
+                    <p>Progress through levels A1 → C2</p>
+                </button>
+                <button class="mode-btn" onclick="showPracticeSelection()">
+                    <span class="icon">💪</span>
+                    <h3>Practice Mode</h3>
+                    <p>Review words from any level</p>
+                </button>
+            </div>
+            <button class="secondary-btn" onclick="showStats()">📊 View Statistics</button>
+        </div>
+
+        <!-- Practice Level Selection -->
+        <div id="practice-selection" class="screen">
+            <h2>Select Practice Level</h2>
+            <div class="level-grid" id="level-grid"></div>
+            <button class="secondary-btn" onclick="showModeSelection()">← Back</button>
+        </div>
+
+        <!-- Learning Screen -->
+        <div id="learning-screen" class="screen">
+            <div class="word-card">
+                <div class="word-header">
+                    <h2 id="word-display" class="word-text">Loading...</h2>
+                    <span id="word-level" class="level-badge">A1</span>
+                </div>
+                
+                <div class="meaning-section">
+                    <h3>Meaning</h3>
+                    <p id="word-meaning">Loading meaning...</p>
+                </div>
+                
+                <div class="example-section">
+                    <h3>Example Sentence</h3>
+                    <p id="word-example">Loading example...</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-new" onclick="markAsNew()">
+                        <span class="icon">📝</span> It's New
+                    </button>
+                    <button class="btn btn-know" onclick="markAsKnown()">
+                        <span class="icon">✅</span> I Know
+                    </button>
+                </div>
+                
+                <div class="navigation">
+                    <button class="secondary-btn" onclick="exitToModeSelection()">← Exit</button>
+                    <span id="word-counter">0/0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Screen -->
+        <div id="stats-screen" class="screen">
+            <h2>Your Statistics</h2>
+            <div id="stats-content"></div>
+            <button class="secondary-btn" onclick="showModeSelection()">← Back</button>
+            <button class="danger-btn" onclick="resetProgress()">🗑️ Reset All Progress</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

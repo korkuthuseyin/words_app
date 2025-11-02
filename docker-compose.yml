@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  word-learning-app:
+    build: .
+    container_name: word-learning-game
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
