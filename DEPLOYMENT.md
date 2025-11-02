@@ -36,12 +36,12 @@ From your local machine:
 cd /Users/korkut/Desktop/projects/words_app
 
 # Transfer files to VPS (replace with your actual VPS details)
-scp -r index.html styles.css app.js words_with_examples.json Dockerfile docker-compose.yml nginx.conf your-user@your-vps-ip:/opt/word-learning-game/
+scp -r index.html styles.css app.js words_with_examples.json Dockerfile docker-compose.yml nginx.conf your-user@your-vps-ip:~/word-learning-game/
 
 # Or use rsync (better for updates)
 rsync -avz --exclude='*.csv' --exclude='*.bak' --exclude='scripts' --exclude='.git' \
   /Users/korkut/Desktop/projects/words_app/ \
-  your-user@your-vps-ip:/opt/word-learning-game/
+  your-user@your-vps-ip:~/word-learning-game/
 ```
 
 ## Step 3: Start Docker Container on VPS
@@ -50,7 +50,7 @@ SSH into your VPS and start the container:
 ```bash
 ssh your-user@your-vps-ip
 
-cd /opt/word-learning-game
+cd ~/word-learning-game
 
 # Build and start the container
 docker-compose up -d
@@ -182,11 +182,11 @@ docker-compose down
 # Transfer new files from local
 rsync -avz --exclude='*.csv' --exclude='*.bak' --exclude='scripts' \
   /Users/korkut/Desktop/projects/words_app/ \
-  your-user@your-vps-ip:/opt/word-learning-game/
+  your-user@your-vps-ip:~/word-learning-game/
 
 # SSH to VPS and rebuild
 ssh your-user@your-vps-ip
-cd /opt/word-learning-game
+cd ~/word-learning-game
 docker-compose down
 docker-compose build --no-cache
 docker-compose up -d

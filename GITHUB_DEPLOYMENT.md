@@ -35,15 +35,12 @@ ssh your-user@your-vps-ip
 
 ### Clone the repository:
 ```bash
-# Navigate to where you want to install
-cd /opt
+# Navigate to your home directory
+cd ~
 
 # Clone your repository (replace YOUR_USERNAME)
-sudo git clone https://github.com/YOUR_USERNAME/word-learning-game.git
+git clone https://github.com/YOUR_USERNAME/word-learning-game.git
 cd word-learning-game
-
-# Give your user ownership
-sudo chown -R $USER:$USER /opt/word-learning-game
 ```
 
 ### Run the automated setup:
@@ -135,7 +132,7 @@ git push
 
 ### On your VPS:
 ```bash
-cd /opt/word-learning-game
+cd ~/word-learning-game
 
 # Pull latest changes
 git pull
